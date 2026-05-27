@@ -33,7 +33,9 @@ with open(result_file_path, mode='w') as csvfile:
 
         # 予測
         future_forecast_result = sarima_fit.forecast(steps=len(future_dates))
-        model_forecast_result['blood_donors'] = past_forecast_mean._append(future_forecast_result)
+        model_forecast_result['blood_donors'] = pd.concat(
+            [past_forecast_mean, future_forecast_result]
+        )
 
         last_year_data = grouped_date_total[-29:-21]
         last_year_data.index += pd.DateOffset(years=1)

@@ -28,10 +28,6 @@ jobs:
           python download.py
 
       - name: Run OCR script
-        env:
-          AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT: ${{ secrets.AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT }}
-          AZURE_DOCUMENT_INTELLIGENCE_KEY: ${{ secrets.AZURE_DOCUMENT_INTELLIGENCE_KEY }}
-          AZURE_DOCUMENT_INTELLIGENCE_MODEL_ID: ${{ secrets.AZURE_DOCUMENT_INTELLIGENCE_MODEL_ID }}
         run: |
           cd module
           python ocr.py
